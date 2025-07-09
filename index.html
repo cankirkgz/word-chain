@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Chain</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+
+        <h1>Kelime Zinciri</h1>
+        <div id="main-word" class="main-word">Başlamak için 'Başlat' butonuna tıkla.</div>
+        <div id="input-area">
+            <input type="text" id="word-input" placeholder="Kelime yaz..." disabled>
+            <div id="timer">⏱ 5</div>
+        </div>
+        <div id="score">Puan: 0</div>
+        <div id="high-score">High Score: 0</div>
+        <div id="message"></div>
+        <button id="start-button" onclick="startGame()">Başlat</button>
+    </div>
+
+    <button id="info-button" class="info-button" title="Oyun Nasıl Oynanır?">❔</button>
+
+    <div id="popup-overlay" class="hidden">
+        <div id="popup">
+            <h2>Oyun Nasıl Oynanır?</h2>
+            <p id="popup-text">…</p>
+            <button id="close-popup">Tamam</button> 
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
