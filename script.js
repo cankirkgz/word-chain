@@ -86,7 +86,7 @@ const wordList = [
 
   function capitalizeFirstLetter(word) {
     if (!word) return '';
-    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    return word.charAt(0).toUpperCase() + word.slice(1).toLocaleLowerCase(lang);
   }
 
   function startGame() {
@@ -122,7 +122,7 @@ const wordList = [
 
   inputEl.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
-      const newWord = inputEl.value.trim().toLowerCase();
+      const newWord = inputEl.value.trim().toLocaleLowerCase(lang);
       checkWord(newWord);
     }
   });
@@ -143,14 +143,14 @@ const wordList = [
   async function checkWord(newWord) {
     if (!newWord) return;
 
-    const lastWord = usedWords[usedWords.length - 1];
-    const lastChar = lastWord[lastWord.length - 1];
+    const lastWord = usedWords[usedWords.length - 1].toLocaleLowerCase(lang);
+    const lastChar = lastWord[lastWord.length - 1].toLocaleLowerCase(lang);
 
     if (newWord[0] !== lastChar) {
       return endGame(texts[lang].mustStartWith(lastChar));
     }
 
-    if (usedWords.includes(newWord)) {
+    if (usedWords.includes(newWord.toLocaleLowerCase())) {
       return endGame(texts[lang].alreadyUsed(newWord));
     }
 
